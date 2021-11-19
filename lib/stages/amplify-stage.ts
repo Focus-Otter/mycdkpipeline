@@ -11,7 +11,7 @@ export class AmplifyStage extends Stage {
 			this,
 			'amplifyexportedbackend',
 			{
-				path: path.resolve(__dirname, '..', '/stacks/amplify-export-lightshow'),
+				path: path.resolve(__dirname, '..', 'stacks/amplify-export-lightshow'),
 				amplifyEnvironment: 'twitch-demo',
 			}
 		)
