@@ -143,26 +143,7 @@
         }
       }
     },
-    "APIGatewayAuthStack": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "Parameters": {
-          "authRoleName": {
-            "Ref": "AuthRoleName"
-          },
-          "unauthRoleName": {
-            "Ref": "UnauthRoleName"
-          },
-          "lightshowapi": {
-            "Fn::GetAtt": [
-              "apilightshowapi",
-              "Outputs.ApiId"
-            ]
-          }
-        }
-      }
-    },
-    "authlightshow3176035e": {
+    "authlightshowd935d39d": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "Parameters": {
@@ -181,36 +162,11 @@
         }
       }
     },
-    "functionlightshowfunc": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "Parameters": {}
-      }
-    },
-    "apilightshowapi": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "Parameters": {
-          "functionlightshowfuncName": {
-            "Fn::GetAtt": [
-              "functionlightshowfunc",
-              "Outputs.Name"
-            ]
-          },
-          "functionlightshowfuncArn": {
-            "Fn::GetAtt": [
-              "functionlightshowfunc",
-              "Outputs.Arn"
-            ]
-          }
-        }
-      }
-    },
     "UpdateRolesWithIDPFunction": {
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authlightshow3176035e"
+        "authlightshowd935d39d"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -305,7 +261,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authlightshow3176035e",
+            "authlightshowd935d39d",
             "Outputs.IdentityPoolId"
           ]
         },
