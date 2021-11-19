@@ -193,7 +193,7 @@
         "UserPoolId": {
           "Ref": "UserPool"
         },
-        "ClientName": "lightsd935d39d_app_clientWeb",
+        "ClientName": "lights999d4fb9_app_clientWeb",
         "RefreshTokenValidity": {
           "Ref": "userpoolClientRefreshTokenValidity"
         }
@@ -208,7 +208,7 @@
         "UserPoolId": {
           "Ref": "UserPool"
         },
-        "ClientName": "lightsd935d39d_app_client",
+        "ClientName": "lights999d4fb9_app_client",
         "GenerateSecret": {
           "Ref": "userpoolClientGenerateSecret"
         },
@@ -245,7 +245,7 @@
               "Fn::Join": [
                 "",
                 [
-                  "upClientLambdaRoled935d39d",
+                  "upClientLambdaRole999d4fb9",
                   {
                     "Fn::Select": [
                       3,
@@ -313,7 +313,7 @@
             }
           ]
         },
-        "PolicyName": "lightsd935d39d_userpoolclient_lambda_iam_policy",
+        "PolicyName": "lights999d4fb9_userpoolclient_lambda_iam_policy",
         "Roles": [
           {
             "Ref": "UserPoolClientRole"
@@ -356,7 +356,7 @@
             }
           ]
         },
-        "PolicyName": "lightsd935d39d_userpoolclient_lambda_log_policy",
+        "PolicyName": "lights999d4fb9_userpoolclient_lambda_log_policy",
         "Roles": [
           {
             "Ref": "UserPoolClientRole"
@@ -436,12 +436,12 @@
         "IdentityPoolName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "lightshowd935d39d_identitypool_d935d39d",
+            "lightshow999d4fb9_identitypool_999d4fb9",
             {
               "Fn::Join": [
                 "",
                 [
-                  "lightshowd935d39d_identitypool_d935d39d__",
+                  "lightshow999d4fb9_identitypool_999d4fb9__",
                   {
                     "Ref": "env"
                   }

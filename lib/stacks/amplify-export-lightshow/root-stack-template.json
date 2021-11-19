@@ -143,7 +143,7 @@
         }
       }
     },
-    "authlightshowd935d39d": {
+    "authlightshow999d4fb9": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "Parameters": {
@@ -166,7 +166,7 @@
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authlightshowd935d39d"
+        "authlightshow999d4fb9"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -261,7 +261,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authlightshowd935d39d",
+            "authlightshow999d4fb9",
             "Outputs.IdentityPoolId"
           ]
         },

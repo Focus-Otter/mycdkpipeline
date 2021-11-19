@@ -1,21 +1,21 @@
 {
-  "stackName": "amplify-lightshow-dev-161218",
+  "stackName": "amplify-lightshow-dev-170926",
   "props": {
     "templateFile": "root-stack-template.json",
     "parameters": {
-      "AuthRoleName": "amplify-lightshow-dev-161218-authRole",
-      "UnauthRoleName": "amplify-lightshow-dev-161218-unauthRole",
-      "DeploymentBucketName": "amplify-lightshow-dev-161218-deployment"
+      "AuthRoleName": "amplify-lightshow-dev-170926-authRole",
+      "UnauthRoleName": "amplify-lightshow-dev-170926-unauthRole",
+      "DeploymentBucketName": "amplify-lightshow-dev-170926-deployment"
     },
     "preserveLogicalIds": true,
     "loadNestedStacks": {
-      "authlightshowd935d39d": {
-        "templateFile": "auth/lightshowd935d39d/lightshowd935d39d-cloudformation-template.json",
+      "authlightshow999d4fb9": {
+        "templateFile": "auth/lightshow999d4fb9/lightshow999d4fb9-cloudformation-template.json",
         "parameters": {
-          "identityPoolName": "lightshowd935d39d_identitypool_d935d39d",
+          "identityPoolName": "lightshow999d4fb9_identitypool_999d4fb9",
           "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "lightsd935d39d",
-          "userPoolName": "lightshowd935d39d_userpool_d935d39d",
+          "resourceNameTruncated": "lights999d4fb9",
+          "userPoolName": "lightshow999d4fb9_userpool_999d4fb9",
           "autoVerifiedAttributes": [
             "email"
           ],
@@ -42,10 +42,10 @@
           "userpoolClientReadAttributes": [
             "email"
           ],
-          "userpoolClientLambdaRole": "lightsd935d39d_userpoolclient_lambda_role",
+          "userpoolClientLambdaRole": "lights999d4fb9_userpoolclient_lambda_role",
           "userpoolClientSetAttributes": false,
-          "sharedId": "d935d39d",
-          "resourceName": "lightshowd935d39d",
+          "sharedId": "999d4fb9",
+          "resourceName": "lightshow999d4fb9",
           "authSelections": "identityPoolAndUserPool",
           "useDefault": "default",
           "userPoolGroupList": [],

@@ -1,5 +1,6 @@
-import { Construct, Stage, StageProps } from '@aws-cdk/core'
+import { CfnOutput, Construct, Stage, StageProps } from '@aws-cdk/core'
 import { AmplifyExportedBackend } from '@aws-amplify/cdk-exported-backend'
+
 import * as path from 'path'
 
 export class AmplifyStage extends Stage {
@@ -10,8 +11,8 @@ export class AmplifyStage extends Stage {
 			this,
 			'amplifyexportedbackend',
 			{
-				path: path.resolve(__dirname, '..', 'stacks/amplify-export-lightshow'),
-				amplifyEnvironment: 'twitch-staging-demo',
+				path: path.resolve(__dirname, '..', '/stacks/amplify-export-lightshow'),
+				amplifyEnvironment: 'twitch-demo',
 			}
 		)
 	}
