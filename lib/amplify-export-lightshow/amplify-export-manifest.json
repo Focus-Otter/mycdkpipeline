@@ -1,45 +1,37 @@
 {
-  "stackName": "amplify-mytodoapp-dev-191141",
+  "stackName": "amplify-lightshow-dev-12339",
   "props": {
     "templateFile": "root-stack-template.json",
     "parameters": {
-      "AuthRoleName": "amplify-mytodoapp-dev-191141-authRole",
-      "UnauthRoleName": "amplify-mytodoapp-dev-191141-unauthRole",
-      "DeploymentBucketName": "amplify-mytodoapp-dev-191141-deployment"
+      "AuthRoleName": "amplify-lightshow-dev-12339-authRole",
+      "UnauthRoleName": "amplify-lightshow-dev-12339-unauthRole",
+      "DeploymentBucketName": "amplify-lightshow-dev-12339-deployment"
     },
     "preserveLogicalIds": true,
     "loadNestedStacks": {
-      "apimytodoapp": {
-        "templateFile": "api/mytodoapp/cloudformation-template.json",
+      "APIGatewayAuthStack": {
+        "templateFile": "auth/APIGatewayAuthStack.json",
         "parameters": {
-          "AppSyncApiName": "mytodoapp",
-          "DynamoDBBillingMode": "PAY_PER_REQUEST",
-          "DynamoDBEnableServerSideEncryption": false,
-          "S3DeploymentBucket": "amplify-mytodoapp-dev-191141-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/62193fcb878556f6fcf2af6cff6fa93d63b75479",
           "env": "dev"
         },
         "preserveLogicalIds": true,
-        "loadNestedStacks": {
-          "CustomResourcesjson": {
-            "templateFile": "api/mytodoapp/amplify-appsync-files/stacks/CustomResources.json",
-            "preserveLogicalIds": true,
-            "loadNestedStacks": {}
-          },
-          "Todo": {
-            "templateFile": "api/mytodoapp/amplify-appsync-files/stacks/Todo.json",
-            "preserveLogicalIds": true,
-            "loadNestedStacks": {}
-          }
-        }
+        "loadNestedStacks": {}
       },
-      "authmytodoapp63409495": {
-        "templateFile": "auth/mytodoapp63409495/mytodoapp63409495-cloudformation-template.json",
+      "apilightshowapi": {
+        "templateFile": "api/lightshowapi/lightshowapi-cloudformation-template.json",
         "parameters": {
-          "identityPoolName": "mytodoapp63409495_identitypool_63409495",
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      },
+      "authlightshow3176035e": {
+        "templateFile": "auth/lightshow3176035e/lightshow3176035e-cloudformation-template.json",
+        "parameters": {
+          "identityPoolName": "lightshow3176035e_identitypool_3176035e",
           "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "mytodo63409495",
-          "userPoolName": "mytodoapp63409495_userpool_63409495",
+          "resourceNameTruncated": "lights3176035e",
+          "userPoolName": "lightshow3176035e_userpool_3176035e",
           "autoVerifiedAttributes": [
             "email"
           ],
@@ -66,10 +58,10 @@
           "userpoolClientReadAttributes": [
             "email"
           ],
-          "userpoolClientLambdaRole": "mytodo63409495_userpoolclient_lambda_role",
+          "userpoolClientLambdaRole": "lights3176035e_userpoolclient_lambda_role",
           "userpoolClientSetAttributes": false,
-          "sharedId": "63409495",
-          "resourceName": "mytodoapp63409495",
+          "sharedId": "3176035e",
+          "resourceName": "lightshow3176035e",
           "authSelections": "identityPoolAndUserPool",
           "useDefault": "default",
           "userPoolGroupList": [],
@@ -78,6 +70,18 @@
           "useEnabledMfas": true,
           "breakCircularDependency": true,
           "dependsOn": [],
+          "env": "dev"
+        },
+        "preserveLogicalIds": true,
+        "loadNestedStacks": {}
+      },
+      "functionlightshowfunc": {
+        "templateFile": "function/lightshowfunc/lightshowfunc-cloudformation-template.json",
+        "parameters": {
+          "lightId": "d073d55a3d57",
+          "secretsPathAmplifyAppId": "d2wd5u66t37da2",
+          "deploymentBucketName": "amplify-lightshow-dev-12339-deployment",
+          "s3Key": "amplify-builds/lightshowfunc-67596242785930572f4b-build.zip",
           "env": "dev"
         },
         "preserveLogicalIds": true,

@@ -143,13 +143,26 @@
         }
       }
     },
-    "apimytodoapp": {
+    "APIGatewayAuthStack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "Parameters": {}
+        "Parameters": {
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "lightshowapi": {
+            "Fn::GetAtt": [
+              "apilightshowapi",
+              "Outputs.ApiId"
+            ]
+          }
+        }
       }
     },
-    "authmytodoapp63409495": {
+    "authlightshow3176035e": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "Parameters": {
@@ -168,11 +181,36 @@
         }
       }
     },
+    "functionlightshowfunc": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "Parameters": {}
+      }
+    },
+    "apilightshowapi": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "Parameters": {
+          "functionlightshowfuncName": {
+            "Fn::GetAtt": [
+              "functionlightshowfunc",
+              "Outputs.Name"
+            ]
+          },
+          "functionlightshowfuncArn": {
+            "Fn::GetAtt": [
+              "functionlightshowfunc",
+              "Outputs.Arn"
+            ]
+          }
+        }
+      }
+    },
     "UpdateRolesWithIDPFunction": {
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authmytodoapp63409495"
+        "authlightshow3176035e"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -267,7 +305,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authmytodoapp63409495",
+            "authlightshow3176035e",
             "Outputs.IdentityPoolId"
           ]
         },
@@ -326,7 +364,10 @@
                 },
                 {
                   "Effect": "Allow",
-                  "Action": "iam:UpdateAssumeRolePolicy",
+                  "Action": [
+                    "iam:UpdateAssumeRolePolicy",
+                    "iam:GetRole"
+                  ],
                   "Resource": {
                     "Fn::GetAtt": [
                       "AuthRole",
@@ -336,7 +377,10 @@
                 },
                 {
                   "Effect": "Allow",
-                  "Action": "iam:UpdateAssumeRolePolicy",
+                  "Action": [
+                    "iam:UpdateAssumeRolePolicy",
+                    "iam:GetRole"
+                  ],
                   "Resource": {
                     "Fn::GetAtt": [
                       "UnauthRole",
